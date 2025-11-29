@@ -9,19 +9,27 @@ import axios from 'axios'
 import './App.css'
 
 function App() {
-  const [code, setCode] = useState(` function sum() {
+  const [code, setCode] = useState(`function sum() {
   return 1 + 1
 }`)
 
   const [review, setReview] = useState(``)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     prism.highlightAll()
   }, [])
 
   async function reviewCode() {
-    const response = await axios.post('http://localhost:3000/ai/get-review', { code })
-    setReview(response.data)
+    setLoading(true)
+    try {
+      const response = await axios.post('http://localhost:3000/ai/get-review', { code })
+      setReview(response.data)
+    } catch (error) {
+      setReview("Error fetching review. Please try again.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -46,14 +54,18 @@ function App() {
           </div>
           <div
             onClick={reviewCode}
-            className="review">Review</div>
+            className="review">
+            {loading ? "Reviewing..." : "Review"}
+          </div>
         </div>
         <div className="right">
-          <Markdown
-
-            rehypePlugins={[rehypeHighlight]}
-
-          >{review}</Markdown>
+          {loading ? (
+            <div className="loader">Generating review...</div>
+          ) : (
+            <Markdown
+              rehypePlugins={[rehypeHighlight]}
+            >{review}</Markdown>
+          )}
         </div>
       </main>
     </>

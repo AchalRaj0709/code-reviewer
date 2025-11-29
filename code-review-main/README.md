@@ -1,13 +1,16 @@
 # AI Code Review Application
 
+![AI Code Review Application Preview](preview.png)
+
 An intelligent code review application powered by Google's Gemini AI that provides expert-level code analysis and suggestions.
 
 ## Features
 
-- **AI-Powered Code Reviews**: Get detailed code reviews from an AI trained to act as a senior developer with 7+ years of experience
-- **Real-time Analysis**: Instant feedback on code quality, best practices, and potential improvements
-- **Interactive Code Editor**: Built-in syntax highlighting for easy code input
-- **Markdown Output**: Beautifully formatted review results with syntax highlighting
+- **🤖 AI-Powered Code Reviews**: Get detailed code reviews from an AI trained to act as a senior developer with 7+ years of experience
+- **✨ Modern UI**: Beautiful, dark-themed interface with glassmorphism effects, vibrant gradients, and smooth animations
+- **⚡ Real-time Analysis**: Instant feedback on code quality, best practices, and potential improvements
+- **📝 Interactive Code Editor**: Built-in syntax highlighting for easy code input
+- **🎨 Markdown Output**: Beautifully formatted review results with syntax highlighting
 
 ## Tech Stack
 
